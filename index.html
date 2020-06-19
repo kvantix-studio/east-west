@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Калькулятор стоимости</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <div class="main">
+
+        <div class="container">
+            <ul class="tabs">
+              <li class="active">
+                <a href="">Калькулятор</a>
+              </li>
+              <li>
+                <a href="">Список компаний</a>
+              </li>
+              <li>
+                <a href="">Настройки</a>
+              </li>
+            </ul>
+            <div class="tabs-content">
+              <div class="tabs-panel active" data-index="0">
+                
+                
+                <div class="calc">
+
+                        <div class="calc__wrapper">
+                            
+                            <div class="calc__content">
+        
+                                <form action="#" class="form">
+        
+                                    <div class="calc-form"></div>
+        
+                                    <div class="calc-price">
+                                        <h3 class="calc-price__title">Стоимость обслуживания:</h3>
+        
+                                        <div class="calc-price__sum">≈ <span id="sum">0</span> руб./мес.</div>
+        
+                                        <!-- <input type="text" name="name" class="calc-price__input" placeholder="Ваше имя" required>
+                                        <input type="tel" name="phone" class="calc-price__input" placeholder="Ваш телефон" required>
+                                        <button class="calc__btn">Оставить Заявку</button> -->
+        
+                                    </div>
+                                    <!-- /.calc-price -->
+                                    
+                                </form>
+                                <!-- /.calc-form -->
+        
+                            </div>
+                            <!-- /.calc__content -->
+                        </div>
+                        <!-- /.calc__wrapper -->
+                    
+                </div>
+                <!-- /.calc -->
+
+
+              </div>
+              <div class="tabs-panel" data-index="1">
+                
+                
+                <div class="company">
+                    
+                        <div class="company__wrapper">
+                            <form action="#" class="company-form">
+        
+        
+        
+                                <div class="company-block">
+        
+                                    <div class="company-block--left">
+        
+                                        <div class="company-block__wrapper">
+        
+                                            <div class="company-block__item">
+                                                <div class="company-block__title">Форма собственности</div>
+                                                <select class="company-block__select">
+                                                    <option value="">Любая форма</option>
+                                                    <option value="">ИП</option>
+                                                    <option value="">ООО</option>
+                                                </select>
+                                            </div>
+        
+                                            <div class="company-block__item">
+                                                <div class="company-block__title">Система налогообложения</div>
+                                                <select class="company-block__select">
+                                                    <option value="">Любая система</option>
+                                                    <option value="">ОСНО</option>
+                                                    <option value="">УСН Доходы</option>
+                                                    <option value="">УСН Доходы - расходы</option>
+                                                    <option value="">ЕНВД</option>
+                                                </select>
+                                            </div>
+        
+                                            <div class="company-block__item">
+                                                <div class="company-block__title">Сотрудники</div>
+                                                <select class="company-block__select">
+                                                    <option value="">Любое количество</option>
+                                                    <option value="">1</option>
+                                                    <option value="">2</option>
+                                                    <option value="">3</option>
+                                                    <option value="">4</option>
+                                                    <option value="">5</option>
+                                                    <option value="">10</option>
+                                                    <option value="">15</option>
+                                                    <option value="">20</option>
+                                                    <option value="">30</option>
+                                                    <option value="">40</option>
+                                                    <option value="">50</option>
+                                                    <option value="">Нет сотрудников</option>
+                                                </select>
+                                            </div>
+        
+                                        </div>
+        
+                                        <div class="company-block__checkbox-list">
+                                            <label class="control control-checkbox">
+                                                Только с ЕНВД 
+                                                <input type="checkbox" />
+                                                <div class="control_indicator"></div>
+                                            </label>
+                                            <label class="control control-checkbox">
+                                                Только с Патент
+                                                <input type="checkbox" />
+                                                <div class="control_indicator"></div>
+                                            </label>
+                                            <label class="control control-checkbox">
+                                                Нулевая
+                                                <input type="checkbox" checked="checked" />
+                                                <div class="control_indicator"></div>
+                                            </label>
+                                            <label class="control control-checkbox">
+                                                Ежемесячный
+                                                <input type="checkbox" checked="checked" />
+                                                <div class="control_indicator"></div>
+                                            </label>
+                                            <label class="control control-checkbox">
+                                                С оборотами
+                                                <input type="checkbox" checked="checked" />
+                                                <div class="control_indicator"></div>
+                                            </label>
+                                            <label class="control control-checkbox">
+                                                Ежеквартальный
+                                                <input type="checkbox" checked="checked" />
+                                                <div class="control_indicator"></div>
+                                            </label>
+                                        </div>
+        
+                                    </div>
+        
+                                    <div class="company-block--right">
+        
+                                        <div class="company-block__wrapper">
+        
+                                            <div class="company-block__sum-item">
+        
+                                                <div class="company-block__item">
+                                                    <div class="company-block__title">Статус</div>
+                                                    <select class="company-block__select">
+                                                        <option value="">Обслуживается</option>
+                                                        <option value="">Не обслуживается</option>
+                                                    </select>
+                                                </div>
+                    
+                                                <div class="company-block__item">
+                                                    <div class="company-block__title">Ответственный</div>
+                                                    <select class="company-block__select">
+                                                        <option value="">любой ответственный</option>
+                                                        <option value="">---</option>
+                                                    </select>
+                                                </div>
+        
+                                            </div>
+        
+                                            <div class="company-block__summary">
+        
+                                                <div class="company-block__item">
+                                                    <div class="company-block__img">
+                                                        <img src="img/dollar.png" alt="dollar">
+                                                    </div>
+                                                    <div class="company-block__num">917</div>
+                                                    <div class="company-block__name">Компаний</div>
+                                                </div>
+        
+                                                <div class="company-block__item">
+                                                    <div class="company-block__img">
+                                                        <img src="img/dollar.png" alt="dollar">
+                                                    </div>
+                                                    <div class="company-block__num">2 700 728</div>
+                                                    <div class="company-block__name">На сумму</div>
+                                                </div>
+        
+                                                <div class="company-block__item">
+                                                    <div class="company-block__img">
+                                                        <img src="img/dollar.png" alt="dollar">
+                                                    </div>
+                                                    <div class="company-block__num">313 597</div>
+                                                    <div class="company-block__name">На повышение</div>
+                                                </div>
+        
+                                            </div>
+        
+                                        </div>
+        
+                                    </div>
+        
+                                </div>
+                                <!-- /.company-blocks -->
+        
+                                <div class="company-list">
+        
+                                    <div class="company-list__head">
+                                        <div class="company-list__num">#</div>
+                                        <div class="company-list__name">Название</div>
+                                        <div class="company-list__price">Стоимость</div>
+                                        <div class="company-list_calc">Калькулятор</div>
+                                        <div class="company-list__difference">Отклонение</div>
+                                    </div>
+        
+                                    <div class="company-list__wrapper">
+        
+                                        <div class="company-list__item">
+                                            <div class="company-list__num">1</div>
+                                            <div class="company-list__name">Абсолют Экспресс</div>
+                                            <div class="company-list__price">1000</div>
+                                            <div class="company-list_calc">1400</div>
+                                            <div class="company-list__difference">400</div>
+                                        </div>
+        
+                                        <div class="company-list__item">
+                                            <div class="company-list__num">2</div>
+                                            <div class="company-list__name">Абсолют Экспресс</div>
+                                            <div class="company-list__price">1000</div>
+                                            <div class="company-list_calc">1400</div>
+                                            <div class="company-list__difference">400</div>
+                                        </div>
+        
+                                        <div class="company-list__item">
+                                            <div class="company-list__num">3</div>
+                                            <div class="company-list__name">Абсолют Экспресс</div>
+                                            <div class="company-list__price">1000</div>
+                                            <div class="company-list_calc">1400</div>
+                                            <div class="company-list__difference">400</div>
+                                        </div>
+        
+                                        <div class="company-list__item">
+                                            <div class="company-list__num">4</div>
+                                            <div class="company-list__name">Абсолют Экспресс</div>
+                                            <div class="company-list__price">1000</div>
+                                            <div class="company-list_calc">1400</div>
+                                            <div class="company-list__difference">400</div>
+                                        </div>
+        
+                                    </div>
+        
+                                </div>
+                                <!-- /.company__list -->
+        
+        
+        
+                            </form>
+                            <!-- /.company-form -->
+                        </div>
+                        <!-- /.company__wrapper -->
+                    
+                </div>
+                <!-- /.company -->
+
+
+              </div>
+              <div class="tabs-panel" data-index="2">
+                
+                
+                Тут будут настройки
+
+
+              </div>
+            </div>
+          </div>
+        
+
+    </div>
+        
+    <script src="js/app.js"></script>
+    
+</body>
+</html>

@@ -1,0 +1,467 @@
+* {
+    box-sizing: border-box;
+}
+
+html {
+    margin: 0;
+    padding: 0;
+    width:100%;
+    height:100%;
+    font-family: 'Montserrat', sans-serif;
+}
+
+input, textarea {
+    outline: none;
+}
+
+input:active, textarea:active {
+    outline: none;
+}
+
+input:focus, textarea:focus {
+    outline: none;
+}
+
+button:active, button:focus {
+    outline: none;
+}
+
+select:active, select:focus {
+    outline:none;
+}
+  
+body, h1, h2, h3, h4, ul, li {
+    margin: 0;
+    padding: 0;
+    background-color: #dadada;
+}
+
+ul {
+    list-style: none;
+}
+  
+a {
+    text-decoration: none;
+    color: black;
+}
+
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+select::-ms-expand {
+    display: none;
+}
+
+.main {
+    padding: 50px 0;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+/* Block calc ================================== */
+
+.calc {
+    width: 100%;
+    height: 100%;
+}
+
+.calc__title {
+    display: inline-block;
+    height: 20px;
+    background-color: #ffffff;
+}
+
+.calc__title span {
+    position: relative;
+    top: -20px;
+    font-size: 30px;
+    padding: 0 30px;
+}
+
+.calc__content {
+    display: flex;
+    justify-content: space-between;
+}
+
+.form {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.calc-form {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 65%;
+    background-color: #ffffff;
+}
+
+.calc-item {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: 40px;
+    width: 320px;
+}
+
+.calc-item__title {
+    margin-bottom: 15px;
+    font-size: 16px;
+}
+
+.calc-item__select {
+    width: 100%;
+    height: 40px;
+    padding: 10px 35px 10px 10px;
+    border: 1px solid #d3d3d3;
+    border-radius: 5px;
+    background: url('../img/arrow-bottom.png');
+    background-repeat: no-repeat;
+    background-position: 95% 50%;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.calc-price {
+    width: 35%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.calc-price__title {
+    font-size: 16px;
+    margin-bottom: 30px;
+}
+
+.calc-price__sum {
+    margin-bottom: 30px;
+    text-align: center;
+    font-size: 23px;
+    font-weight: 700;
+}
+
+.calc-price__input {
+    margin-bottom: 20px;
+    padding: 0 30px;
+    width: 100%;
+    height: 66px;
+    border: 1px solid #d3d3d3;
+    border-radius: 100px;
+    font-size: 19px;
+}
+
+.calc__btn {
+    width: 300px;
+    height: 90px;
+    font-size: 25px;
+    text-align: center;
+    border: none;
+    border-radius: 100px;
+    color: #ffffff;
+    background: linear-gradient(to bottom,#4b4b4b 0,#353535 100%);
+    cursor: pointer;
+}
+
+.calc__btn:hover {
+    background: #353535;
+}
+
+/* Block company ================================== */
+
+.company-block {
+    margin-bottom: 50px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.company-block--left {
+    max-width: 440px;
+    display: flex;
+    flex-direction: column;
+    background-color: #ffffff;
+}
+
+.company-block--right {
+    min-width: 700px;
+}
+
+.company-block--right > .company-block__wrapper {
+    padding-left: 50px;
+}
+
+.company-block__item {
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+.company-block__title {
+    margin-bottom: 15px;
+    font-size: 16px;
+}
+
+.company-block__select {
+    width: 100%;
+    height: 40px;
+    padding: 10px 35px 10px 10px;
+    border: 1px solid #d3d3d3;
+    border-radius: 5px;
+    background: #ffffff url('../img/arrow-bottom.png');
+    background-repeat: no-repeat;
+    background-position: 96% 50%;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.company-block__checkbox-list {
+    padding: 0 15px 20px 15px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.company-block__sum-item {
+    display: flex;
+}
+
+.company-block__sum-item > .company-block__item {
+    margin-right: 10px;
+}
+
+.company-block__sum-item > .company-block__item:last-child {
+    margin-right: 0;
+}
+
+.company-block__summary {
+    padding-top: 50px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.company-block__summary > .company-block__item {
+    width: 100%; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.company-block__img {
+    margin-bottom: 10px;
+    width: 100px;
+}
+
+.company-block__img img {
+    width: 100%;
+}
+
+.company-block__num {
+    font-size: 30px;
+}
+
+.company-list {
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+}
+
+.company-list__head {
+    font-weight: 700;
+    border-bottom: 1px solid #d3d3d3;
+}
+.company-list__head, .company-list__item {
+    width: 100%;
+    height: 45px;
+    display: flex;
+    align-items: center;
+}
+
+.company-list__item {
+    border-bottom: 1px solid #d3d3d3;
+}
+
+.company-list__item:last-child {
+    border-bottom: none;
+}
+
+.company-list__num {
+    width: 5%;
+    text-align: center;
+}
+
+.company-list__name {
+    width: 59%;
+}
+
+.company-list__price {
+    width: 12%;
+    min-width: 130px;
+}
+
+.company-list_calc {
+    width: 12%;
+    min-width: 130px;
+}
+
+.company-list__difference {
+    width: 12%;
+    min-width: 130px;
+}
+
+
+/* Checkbox ================================== */
+
+.control {
+    width: 200px;
+    display: block;
+    position: relative;
+    padding-left: 30px;
+    margin-bottom: 5px;
+    padding-top: 3px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.control input {
+    position: absolute;
+    z-index: -1;
+    opacity: 0;
+}
+
+.control_indicator {
+    position: absolute;
+    top: 2px;
+    left: 0;
+    height: 20px;
+    width: 20px;
+    background: #e6e6e6;
+    border: 0px solid #000000;
+    border-radius: 0px;
+}
+
+.control:hover input ~ .control_indicator,
+.control input:focus ~ .control_indicator {
+    background: #cccccc;
+}
+
+.control input:checked ~ .control_indicator {
+    background: #2aa1c0;
+}
+
+.control:hover input:not([disabled]):checked ~ .control_indicator,
+.control input:checked:focus ~ .control_indicator {
+    background: #0e6647d;
+}
+
+.control input:disabled ~ .control_indicator {
+    background: #e6e6e6;
+    opacity: 0.6;
+    pointer-events: none;
+}
+
+.control_indicator:after {
+    box-sizing: unset;
+    content: '';
+    position: absolute;
+    display: none;
+}
+
+.control input:checked ~ .control_indicator:after {
+    display: block;
+}
+
+.control-checkbox .control_indicator:after {
+    left: 8px;
+    top: 4px;
+    width: 3px;
+    height: 8px;
+    border: solid #ffffff;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+
+.control-checkbox input:disabled ~ .control_indicator:after {
+    border-color: #7b7b7b;
+}
+
+/* TABS =============================================================== */
+
+.tabs {
+    display: flex;
+}
+
+.tabs li:not(:last-child) {
+    margin-right: 7px;
+}
+
+.tabs li a {
+    display: block;
+    position: relative;
+    padding: 10px 25px;
+    border-radius: 2px 2px 0 0;
+    background: #e6e6e6;
+    transition: all 0.1s ease-in-out;
+}
+
+.tabs li.active a,
+.tabs li a:hover {
+    background: #ffffff;
+}
+
+.tabs-content {
+    position: relative;
+    z-index: 2;
+    padding: 50px 15px 15px 15px;
+    border-radius: 0 4px 4px 4px;
+    background: white;
+}
+
+.tabs-panel {
+    display: none;
+}
+
+.tabs-panel.active {
+    display: block;
+}
+
+.tabs-panel p + div {
+    margin-top: 15px;
+}
+
+@media screen and (max-width: 600px) {
+    .tabs {
+        flex-direction: column;
+    }
+
+    .tabs li {
+        width: 100%;
+    }
+
+    .tabs li:not(:last-child) {
+        margin-right: 0;
+    }
+
+    .tabs li a {
+        border-radius: 0;
+        opacity: 1;
+        top: 0;
+    }
+
+    .tabs li.active a::before {
+        content: "•";
+        padding-right: 5px;
+    }
+
+    .tabs-content {
+        border-radius: 0;
+    }
+}
