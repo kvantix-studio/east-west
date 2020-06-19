@@ -33,6 +33,9 @@ select:active, select:focus {
 body, h1, h2, h3, h4, ul, li {
     margin: 0;
     padding: 0;
+}
+
+body {
     background-color: #dadada;
 }
 
@@ -93,6 +96,7 @@ select::-ms-expand {
 .form {
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
     width: 100%;
 }
 
@@ -100,7 +104,7 @@ select::-ms-expand {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    width: 65%;
+    max-width: 700px;
     background-color: #ffffff;
 }
 
@@ -131,10 +135,11 @@ select::-ms-expand {
 }
 
 .calc-price {
-    width: 35%;
+    min-width: 300px;
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
 }
 
 .calc-price__title {
@@ -421,7 +426,6 @@ select::-ms-expand {
     position: relative;
     z-index: 2;
     padding: 50px 15px 15px 15px;
-    border-radius: 0 4px 4px 4px;
     background: white;
 }
 
@@ -454,11 +458,6 @@ select::-ms-expand {
         border-radius: 0;
         opacity: 1;
         top: 0;
-    }
-
-    .tabs li.active a::before {
-        content: "•";
-        padding-right: 5px;
     }
 
     .tabs-content {
