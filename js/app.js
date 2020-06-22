@@ -115,8 +115,8 @@ class Calculator {
     this.sum = 0;
     this.selects.forEach(select => {
       let selectTag = select.element.querySelector('select');
-      this.sum += +selectTag.options[selectTag.selectedIndex].value;
-      document.getElementById('sum').innerHTML = this.sum;
+      this.sum += +selectTag.options[selectTag.selectedIndex].dataset.price;
+      document.getElementById('sum').innerHTML = `${this.sum}<input type="hidden" value=${this.sum} name="Калькулятор">`;
     });
   }
 
@@ -141,9 +141,11 @@ class Select {
 
     let select = document.createElement('select');
     select.className = 'calc-item__select';
+    select.name =  this.data.name;
     this.data.options.forEach(option => {
       if (!option.disabled) {
-        let newOption = new Option(option.text, option.value, option.selected ? true : false);
+        let newOption = new Option(option.text, option.text, option.selected ? true : false);
+        newOption.dataset.price = option.value;
         select.add(newOption);
       }
     });
@@ -154,7 +156,8 @@ class Select {
 
   addDisabled(text) {
     let find = this.data.options.find(x => x.text == text);
-    let disabled = new Option(find.text, find.value, find.selected ? true : false);
+    let disabled = new Option(find.text, find.text, find.selected ? true : false);
+    disabled.dataset.price = find.value;
     let options = this.element.querySelectorAll('option');
     let option = Array.from(options).find(x => x.text == text);
     if (!option) {

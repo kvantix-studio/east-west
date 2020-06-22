@@ -1,6 +1,6 @@
 <?
+header('Content-Type: text/html; charset=utf-8');
 $magic_count = 0;
-$hook = '';
 
 //возвращает запрос через api в виде массива
 function executeREST($method, $params, &$call_count) {
@@ -13,7 +13,7 @@ function executeREST($method, $params, &$call_count) {
         $call_count = 0;
     }
 
-	$queryUrl = $hook . $method . '.json';
+	$queryUrl = 'https://b24-7jxc9k.bitrix24.ru/rest/1/rcdql0q1jq2qve09/' . $method . '.json';
 	$queryData = http_build_query($params);
 
 	$curl = curl_init();

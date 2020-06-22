@@ -104,7 +104,7 @@ select::-ms-expand {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    max-width: 700px;
+    max-width: 70%;
     background-color: #ffffff;
 }
 
@@ -135,8 +135,9 @@ select::-ms-expand {
 }
 
 .calc-price {
-    min-width: 300px;
-    display: flex;
+    padding-left: 30px;
+    min-width: 30%;
+    display: inline;
     flex-direction: column;
     align-items: center;
     justify-content: center;
@@ -145,6 +146,7 @@ select::-ms-expand {
 .calc-price__title {
     font-size: 16px;
     margin-bottom: 30px;
+    text-align: center;
 }
 
 .calc-price__sum {
@@ -180,6 +182,17 @@ select::-ms-expand {
     background: #353535;
 }
 
+.calc-submit{
+    width: 100%;
+    height: 40px;
+    padding: 10px 35px 10px 10px;
+    border: 1px solid #d3d3d3;
+    border-radius: 5px;
+    background: #d3d3d3;
+    font-size: 16px;
+    cursor: pointer;
+}
+
 /* Block company ================================== */
 
 .company-block {
@@ -191,14 +204,14 @@ select::-ms-expand {
 }
 
 .company-block--left {
-    max-width: 440px;
+    max-width: 40%;
     display: flex;
     flex-direction: column;
     background-color: #ffffff;
 }
 
 .company-block--right {
-    min-width: 700px;
+    min-width: 60%;
 }
 
 .company-block--right > .company-block__wrapper {
