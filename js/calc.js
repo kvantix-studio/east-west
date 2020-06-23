@@ -8,6 +8,23 @@ class Calculator {
     this.init();
   }
 
+  async init() {
+    try {
+      this.file = await this.getFile('data.json');
+      this.file.forEach(select => {
+        if (select["type"] === "section") {
+          let newSelect = new Select(select);
+          this.selects.push(newSelect);
+        }
+      });
+      this.handleEvents();
+      this.reload();
+    }
+    finally {
+      console.log('Калькулятор загружен');
+    }
+  }
+
   async getFile(url) {
     const d = await fetch(url);
     return await d.json();
@@ -94,23 +111,6 @@ class Calculator {
     }
   }
 
-  async init() {
-    try {
-      this.file = await this.getFile('data.json');
-      this.file.forEach(select => {
-        if (select["type"] === "section") {
-          let newSelect = new Select(select);
-          this.selects.push(newSelect);
-        }
-      });
-      this.handleEvents();
-      this.reload();
-    }
-    finally {
-      console.log('Успешно');
-    }
-  }
-
   calc() {
     this.sum = 0;
     this.selects.forEach(select => {
@@ -189,4 +189,4 @@ class Select {
 
 }
 
-let calculator = new Calculator();
+const calculator = new Calculator();

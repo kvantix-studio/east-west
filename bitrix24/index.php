@@ -173,8 +173,8 @@ else
 
 			$data = call($_SESSION["query_data"]["domain"], "event.bind", array(
 				"auth" => $_SESSION["query_data"]["access_token"],
-				"EVENT" => "onCrmLeadUpdate",
-				"HANDLER" => "http://a9144202.beget.tech/script/calc/bitrix24/uf_update.php",
+				"EVENT" => "onCrmCompanyUpdate",
+				"HANDLER" => "http://a9144202.beget.tech/script/calc/bitrix24/company_update.php",
 			));
 
 		break;

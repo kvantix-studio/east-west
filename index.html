@@ -41,10 +41,6 @@
                                         <h3 class="calc-price__title">Стоимость обслуживания:</h3>
         
                                         <div class="calc-price__sum">≈ <span id="sum">0</span> руб./мес.</div>
-        
-                                        <!-- <input type="text" name="name" class="calc-price__input" placeholder="Ваше имя" required>
-                                        <input type="tel" name="phone" class="calc-price__input" placeholder="Ваш телефон" required>
-                                        <button class="calc__btn">Оставить Заявку</button> -->
                                         <button class="calc-submit">Создать лид</button>
                                         <div class="msg"></div>
         
@@ -82,40 +78,41 @@
         
                                             <div class="company-block__item">
                                                 <div class="company-block__title">Форма собственности</div>
-                                                <select class="company-block__select">
-                                                    <option value="">Любая форма</option>
-                                                    <option value="">ИП</option>
-                                                    <option value="">ООО</option>
+                                                <select class="company-block__select" data-title="UF_CRM_5EE8D58CADAA8">
+                                                    <option value="any">Любая форма</option>
+                                                    <option value="574">ИП</option>
+                                                    <option value="576">ООО</option>
                                                 </select>
                                             </div>
         
                                             <div class="company-block__item">
                                                 <div class="company-block__title">Система налогообложения</div>
-                                                <select class="company-block__select">
-                                                    <option value="">Любая система</option>
-                                                    <option value="">ОСНО</option>
-                                                    <option value="">УСН Доходы</option>
-                                                    <option value="">УСН Доходы - расходы</option>
-                                                    <option value="">ЕНВД</option>
+                                                <select class="company-block__select" data-title="UF_CRM_5EE8D58CB9799">
+                                                    <option value="any">Любая система</option>
+                                                    <option value="578">ОСНО</option>
+                                                    <option value="580">УСН Доходы</option>
+                                                    <option value="582">УСН Доходы - расходы</option>
+                                                    <option value="584">ЕНВД</option>
                                                 </select>
                                             </div>
         
                                             <div class="company-block__item">
                                                 <div class="company-block__title">Сотрудники</div>
-                                                <select class="company-block__select">
-                                                    <option value="">Любое количество</option>
-                                                    <option value="">1</option>
-                                                    <option value="">2</option>
-                                                    <option value="">3</option>
-                                                    <option value="">4</option>
-                                                    <option value="">5</option>
-                                                    <option value="">10</option>
-                                                    <option value="">15</option>
-                                                    <option value="">20</option>
-                                                    <option value="">30</option>
-                                                    <option value="">40</option>
-                                                    <option value="">50</option>
-                                                    <option value="">Нет сотрудников</option>
+                                                <select class="company-block__select" data-title="UF_CRM_5EE8D58CE6F67">
+                                                    <option value="any">Любое количество</option>
+                                                    <option value="612">1</option>
+                                                    <option value="614">2</option>
+                                                    <option value="616">3</option>
+                                                    <option value="618">4</option>
+                                                    <option value="620">5</option>
+                                                    <option value="622">10</option>
+                                                    <option value="624">15</option>
+                                                    <option value="626">20</option>
+                                                    <option value="628">30</option>
+                                                    <option value="630">40</option>
+                                                    <option value="632">50</option>
+                                                    <option value="902">100</option>
+                                                    <option value="634">Нет сотрудников</option>
                                                 </select>
                                             </div>
         
@@ -124,32 +121,32 @@
                                         <div class="company-block__checkbox-list">
                                             <label class="control control-checkbox">
                                                 Только с ЕНВД 
-                                                <input type="checkbox" />
+                                                <input type="checkbox" data-title="UF_CRM_5EE8D58CB9799" data-value="584" />
                                                 <div class="control_indicator"></div>
                                             </label>
                                             <label class="control control-checkbox">
                                                 Только с Патент
-                                                <input type="checkbox" />
+                                                <input type="checkbox" data-title="" data-value="" />
                                                 <div class="control_indicator"></div>
                                             </label>
                                             <label class="control control-checkbox">
                                                 Нулевая
-                                                <input type="checkbox" checked="checked" />
+                                                <input type="checkbox" data-title="UF_CRM_5EE8D58D07E1A" data-value="636" />
                                                 <div class="control_indicator"></div>
                                             </label>
                                             <label class="control control-checkbox">
                                                 Ежемесячный
-                                                <input type="checkbox" checked="checked" />
+                                                <input type="checkbox" data-title="" data-value="" />
                                                 <div class="control_indicator"></div>
                                             </label>
                                             <label class="control control-checkbox">
                                                 С оборотами
-                                                <input type="checkbox" checked="checked" />
+                                                <input type="checkbox" data-title="UF_CRM_5EE8D58D07E1A" data-value="638" />
                                                 <div class="control_indicator"></div>
                                             </label>
                                             <label class="control control-checkbox">
                                                 Ежеквартальный
-                                                <input type="checkbox" checked="checked" />
+                                                <input type="checkbox" data-title="" data-value="" />
                                                 <div class="control_indicator"></div>
                                             </label>
                                         </div>
@@ -164,17 +161,16 @@
         
                                                 <div class="company-block__item">
                                                     <div class="company-block__title">Статус</div>
-                                                    <select class="company-block__select">
-                                                        <option value="">Обслуживается</option>
-                                                        <option value="">Не обслуживается</option>
+                                                    <select class="company-block__select" data-title="UF_CRM_5EE8D58CA1507">
+                                                        <option value="570">Обслуживается</option>
+                                                        <option value="572">Не обслуживается</option>
                                                     </select>
                                                 </div>
                     
                                                 <div class="company-block__item">
                                                     <div class="company-block__title">Ответственный</div>
-                                                    <select class="company-block__select">
-                                                        <option value="">любой ответственный</option>
-                                                        <option value="">---</option>
+                                                    <select class="company-block__select" data-title="ASSIGNED_BY_ID">
+                                                        <option value="any">любой ответственный</option>
                                                     </select>
                                                 </div>
         
@@ -225,41 +221,7 @@
                                         <div class="company-list__difference">Отклонение</div>
                                     </div>
         
-                                    <div class="company-list__wrapper">
-        
-                                        <div class="company-list__item">
-                                            <div class="company-list__num">1</div>
-                                            <div class="company-list__name">Абсолют Экспресс</div>
-                                            <div class="company-list__price">1000</div>
-                                            <div class="company-list_calc">1400</div>
-                                            <div class="company-list__difference">400</div>
-                                        </div>
-        
-                                        <div class="company-list__item">
-                                            <div class="company-list__num">2</div>
-                                            <div class="company-list__name">Абсолют Экспресс</div>
-                                            <div class="company-list__price">1000</div>
-                                            <div class="company-list_calc">1400</div>
-                                            <div class="company-list__difference">400</div>
-                                        </div>
-        
-                                        <div class="company-list__item">
-                                            <div class="company-list__num">3</div>
-                                            <div class="company-list__name">Абсолют Экспресс</div>
-                                            <div class="company-list__price">1000</div>
-                                            <div class="company-list_calc">1400</div>
-                                            <div class="company-list__difference">400</div>
-                                        </div>
-        
-                                        <div class="company-list__item">
-                                            <div class="company-list__num">4</div>
-                                            <div class="company-list__name">Абсолют Экспресс</div>
-                                            <div class="company-list__price">1000</div>
-                                            <div class="company-list_calc">1400</div>
-                                            <div class="company-list__difference">400</div>
-                                        </div>
-        
-                                    </div>
+                                    <div class="company-list__wrapper"></div>
         
                                 </div>
                                 <!-- /.company__list -->
@@ -287,9 +249,9 @@
           </div>
         
 
-    </div>    
-    <script src="js/calc.js"></script>
+    </div>
     <script src="js/tabs.js"></script>
-    <script src="js/companies.js"></script>
+    <script src="js/calc.js"></script>
+    <script src="js/companies.js" type="module"></script>
 </body>
 </html>

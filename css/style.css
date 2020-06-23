@@ -311,6 +311,11 @@ select::-ms-expand {
     border-bottom: none;
 }
 
+.company-list__empty {
+    width: 100%;
+    text-align: center;
+}
+
 .company-list__num {
     width: 5%;
     text-align: center;
@@ -323,16 +328,19 @@ select::-ms-expand {
 .company-list__price {
     width: 12%;
     min-width: 130px;
+    text-align: center;
 }
 
 .company-list_calc {
     width: 12%;
     min-width: 130px;
+    text-align: center;
 }
 
 .company-list__difference {
     width: 12%;
     min-width: 130px;
+    text-align: center;
 }
 
 
