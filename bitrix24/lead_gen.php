@@ -4,7 +4,7 @@ require('crm_requests.php');
 $fields = executeREST('crm.lead.fields', array(), $magic_count)[result];
 $crm_fields = array();
 
-foreach ($_POST as $key => $value) {
+foreach ($_REQUEST as $key => $value) {
     $key = preg_replace('/_/', ' ', $key);
     foreach ($fields as $field_key => $field_value) {
         if ($key == $field_value[formLabel]) {
