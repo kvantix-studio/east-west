@@ -10,7 +10,7 @@ class Calculator {
 
   async init() {
     try {
-      this.file = await this.getFile('data.json');
+      this.file = await this.getFile('settings.json');
       this.file.forEach(select => {
         if (select["type"] === "section") {
           let newSelect = new Select(select);

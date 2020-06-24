@@ -125,10 +125,10 @@ else
 ?>
 
 <ul>
-	<li><a href="<?=PATH?>?test=user.current">Информация о пользователе</a>
-	<li><a href="<?=PATH?>?test=user.update">Загрузить новую аватарку пользователя</a>
-	<li><a href="<?=PATH?>?test=log.blogpost.add">Опубликовать запись в Живой Ленте</a>
 	<li><a href="<?=PATH?>?test=event.bind">Установить обработчик события</a>
+    <li><a href="<?=PATH?>?test=event.get">Просмотр установленных обработчиков событий</a>
+    <li><a href="<?=PATH?>?test=event.unbind">Удаление установленного обработчика события</a>
+    <li><a href="<?=PATH?>?test=event.list">Просмотр всех доступных событий</a>
 </ul>
 
 <a href="<?=PATH?>?refresh=1">Обновить данные авторизации</a><br />
@@ -138,37 +138,6 @@ else
 	$test = isset($_REQUEST["test"]) ? $_REQUEST["test"] : "";
 	switch($test)
 	{
-		case 'user.current': // test: user info
-
-			$data = call($_SESSION["query_data"]["domain"], "user.current", array(
-				"auth" => $_SESSION["query_data"]["access_token"])
-			);
-
-		break;
-
-		case 'user.update': // test batch&files
-
-			$fileContent = file_get_contents(dirname(__FILE__)."/images/MM35_PG189a.jpg");
-
-			$batch = array(
-				'user' => 'user.current',
-				'user_update' => 'user.update?'
-					.http_build_query(array(
-						'ID' => '$result[user][ID]',
-						'PERSONAL_PHOTO' => array(
-							'avatar.jpg',
-							base64_encode($fileContent)
-						)
-					))
-			);
-
-			$data = call($_SESSION["query_data"]["domain"], "batch", array(
-				"auth" => $_SESSION["query_data"]["access_token"],
-				"cmd" => $batch,
-			));
-
-		break;
-
 		case 'event.bind': // bind event handler
 
 			$data = call($_SESSION["query_data"]["domain"], "event.bind", array(
@@ -179,25 +148,25 @@ else
 
 		break;
 
-		case 'log.blogpost.add': // add livefeed entry
+		case 'event.get':
+			$data = call($_SESSION["query_data"]["domain"], "event.get", array(
+				"auth" => $_SESSION["query_data"]["access_token"])
+			);
+		break;
 
-			$fileContent = file_get_contents(dirname(__FILE__)."/images/MM35_PG189a.jpg");
+        case 'event.unbind':
+            $data = call($_SESSION["query_data"]["domain"], "event.unbind", array(
+                "auth" => $_SESSION["query_data"]["access_token"],
+                'EVENT' => 'ONCRMLEADADD',
+                'HANDLER' => REDIRECT_URI . "event.php"
+            ));
+        break;
 
-			$data = call($_SESSION["query_data"]["domain"], "log.blogpost.add", array(
- 				"auth" => $_SESSION["query_data"]["access_token"],
-				"POST_TITLE" => "Hello world!",
-				"POST_MESSAGE" => "Goodbye, cruel world :-(",
-				"FILES" => array(
-					array(
-						'minotaur.jpg',
-						base64_encode($fileContent)
-					)
-				),
-
- 			));
-
- 		break;
-
+        case 'event.list':
+            $data = call($_SESSION["query_data"]["domain"], "events", array(
+                "auth" => $_SESSION["query_data"]["access_token"])
+            );
+        break;
 
 		default:
 
