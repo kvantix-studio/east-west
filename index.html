@@ -6,6 +6,7 @@
     <title>Калькулятор стоимости</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/bootstrap-datepicker3.standalone.css">
 </head>
 <body>
 
@@ -22,10 +23,13 @@
               <li>
                 <a href="">Настройки</a>
               </li>
+              <li>
+                <a href="">Календарь бухгалтера</a>
+              </li>
             </ul>
             <div class="tabs-content">
+
               <div class="tabs-panel active" data-index="0">
-                
                 
                 <div class="calc">
 
@@ -62,8 +66,8 @@
                 </div>
                 <!-- /.calc -->
 
-
               </div>
+
               <div class="tabs-panel" data-index="1">
                 
                 
@@ -276,20 +280,635 @@
 
 
               </div>
+
               <div class="tabs-panel" data-index="2">
                 
                 
-                Тут будут настройки
+                <div class="settings">
+
+                    <div class="settings__wrapper">
+
+                        <div class="settings-item">
+                            <div class="settings__title">Форма собственности</div>
+                            <div class="settings-item__wrapper">
+                                <div class="settings__text">ИП</div>
+                                <input class="settings__input" type="text" name="">
+                                <div class="settings__text">ООО</div>
+                                <input class="settings__input" type="text" name="">
+                            </div>
+                        </div>
+
+                        <div class="settings-item">
+                            <div class="settings__title">Система налогообложения</div>
+                            <div class="settings-item__wrapper">
+                                <div class="settings__text">ОСНО</div>
+                                <input class="settings__input" type="text" name="">
+                                <div class="settings__text">УСН Доходы</div>
+                                <input class="settings__input" type="text" name="">
+                                <div class="settings__text">УСН Доходы - расходы</div>
+                                <input class="settings__input" type="text" name="">
+                                <div class="settings__text">ЕНВД</div>
+                                <input class="settings__input" type="text" name="">
+                                <div class="settings__text">Патент</div>
+                                <input class="settings__input" type="text" name="">
+                            </div>
+                        </div>
+
+                    </div>
+                    <!-- /.settings__wrapper -->
+
+                </div>
+                <!-- /.settings -->
 
 
               </div>
+
+              <div class="tabs-panel" data-index="3">
+                
+                <div class="calendar">
+
+                    <div class="calendar__wrapper">
+
+                        <div class="calendar-block-search">
+                            <div class="calendar-search">
+                                <label class="calendar-search__text" for="search">Поиск</label>
+                                <input class="calendar-search__input" type="search" name="calendar-search" id="search">
+                            </div>
+                            <!-- /.calendar__search -->
+
+                            <div class="calendar-list">
+                                <button class="calendar-list__btn">Все отчеты</button>
+                                <button class="calendar-list__btn">НДС</button>
+                                <button class="calendar-list__btn">УСН доходы - расходы</button>
+                                <button class="calendar-list__btn">УСН доходы</button>
+                                <button class="calendar-list__btn">Отчеты за сотрудников</button>
+                                <button class="calendar-list__btn">Уведомления клиентов</button>
+                            </div>
+                            <!-- /.calendar-list -->
+                        </div>
+                        <!-- /.calendar-block -->
+
+                        <div class="calendar-block-result">
+
+                            <div class="calendar-data-wrapper">
+                                <div class="calendar-data">
+                                    <div class="calendar-data__title">Дата</div>
+                                    <div class="input-daterange input-group" id="datepicker">
+                                        <span class="input-group-addon">с </span>
+                                        <input type="text" class="input-sm form-control" name="start" />
+                                        <span class="input-group-addon">по </span>
+                                        <input type="text" class="input-sm form-control" name="end" />
+                                    </div>
+                                </div>
+                                <!-- /.calendar-data -->
+    
+                                <div class="calendar-responsible">
+                                    <label class="calendar-responsible__title" for="responsible">Ответственный</label>
+                                    <select class="calendar-responsible__select" name="calendar-responsible" id="responsible">
+                                        <option>любой ответственный</option>
+                                        <option>---</option>
+                                        <option>---</option>
+                                    </select>
+                                </div>
+                                <!-- /.calendar-responsible -->
+                            </div>
+                            <!-- /.calendar-block__wrapper -->
+
+                            <div class="calendar-result-wrapper">
+                                <div class="calendar-result">
+                                    <div class="calendar-result__num">881</div>
+                                    <span class="calendar-result__text text-1">Нужно сдать</span>
+                                </div>
+                                <div class="calendar-result">
+                                    <div class="calendar-result__num">24</div>
+                                    <span class="calendar-result__text text-2">Успешно сдано</span>
+                                </div>
+                                <div class="calendar-result">
+                                    <div class="calendar-result__num">10</div>
+                                    <span class="calendar-result__text text-3">Не сдано</span>
+                                </div>
+                            </div>
+                            <!-- /.calendar-block__wrapper -->
+
+                        </div>
+                        <!-- /.calendar-block -->
+
+                    </div>
+                    <!-- /.calendar__wrapper -->
+
+                    <div class="calendar__wrapper">
+                        
+                        <div class="calendar-company">
+                            
+                            <div class="calendar-company__item">
+                                <div class="calendar-company__link">
+                                    <div class="calendar-company__link-num"></div>
+                                    <div class="calendar-company__link-name data"></div>
+                                </div>
+                                <div class="calendar-company__list">
+                                    <div class="calendar-company__li data">1</div>
+                                    <div class="calendar-company__li data">2</div>
+                                    <div class="calendar-company__li data">3</div>
+                                    <div class="calendar-company__li data">4</div>
+                                    <div class="calendar-company__li data">5</div>
+                                    <div class="calendar-company__li data">6</div>
+                                    <div class="calendar-company__li data">7</div>
+                                    <div class="calendar-company__li data">8</div>
+                                    <div class="calendar-company__li data">9</div>
+                                    <div class="calendar-company__li data">10</div>
+                                    <div class="calendar-company__li data">11</div>
+                                    <div class="calendar-company__li data">12</div>
+                                    <div class="calendar-company__li data">13</div>
+                                    <div class="calendar-company__li data">14</div>
+                                    <div class="calendar-company__li data">15</div>
+                                    <div class="calendar-company__li data">16</div>
+                                    <div class="calendar-company__li data">17</div>
+                                    <div class="calendar-company__li data">18</div>
+                                    <div class="calendar-company__li data">19</div>
+                                    <div class="calendar-company__li data">20</div>
+                                    <div class="calendar-company__li data">21</div>
+                                    <div class="calendar-company__li data">22</div>
+                                    <div class="calendar-company__li data">23</div>
+                                    <div class="calendar-company__li data">24</div>
+                                    <div class="calendar-company__li data">25</div>
+                                    <div class="calendar-company__li data">26</div>
+                                    <div class="calendar-company__li data">27</div>
+                                    <div class="calendar-company__li data">28</div>
+                                    <div class="calendar-company__li data">29</div>
+                                    <div class="calendar-company__li data">30</div>
+                                    <div class="calendar-company__li data">31</div>
+                                </div>
+                            </div>
+                            <div class="calendar-company__item">
+                                <div class="calendar-company__link">
+                                    <div class="calendar-company__link-num">#</div>
+                                    <div class="calendar-company__link-name">Название</div>
+                                </div>
+                                <div class="calendar-company__list">
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li"></div>
+                                </div>
+                            </div>
+
+                            
+                            <div class="calendar-company__item">
+                                <div class="calendar-company__link">
+                                    <div class="calendar-company__num">1</div>
+                                    <div class="calendar-company__name">Абслоют Экспресс</div>
+                                </div>
+                                <div class="calendar-company__list">
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li status-3"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li status-2"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li status-1"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li status-4"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li status-3"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li status-1"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li status-1"></div>
+                                </div>
+                            </div>
+                            <div class="calendar-company__item">
+                                <div class="calendar-company__link">
+                                    <div class="calendar-company__num">1</div>
+                                    <div class="calendar-company__name">Абслоют Экспресс</div>
+                                </div>
+                                <div class="calendar-company__list">
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li status-3"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li status-2"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li status-1"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li status-4"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li status-3"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li status-1"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li status-1"></div>
+                                </div>
+                            </div>
+                            <div class="calendar-company__item">
+                                <div class="calendar-company__link">
+                                    <div class="calendar-company__num">1</div>
+                                    <div class="calendar-company__name">Абслоют Экспресс</div>
+                                </div>
+                                <div class="calendar-company__list">
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li status-3"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li status-2"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li status-1"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li status-4"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li status-3"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li status-1"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li status-1"></div>
+                                </div>
+                            </div>
+                            <div class="calendar-company__item">
+                                <div class="calendar-company__link">
+                                    <div class="calendar-company__num">1</div>
+                                    <div class="calendar-company__name">Абслоют Экспресс</div>
+                                </div>
+                                <div class="calendar-company__list">
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li status-3"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li status-2"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li status-1"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li status-4"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li status-3"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li status-1"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li status-1"></div>
+                                </div>
+                            </div>
+                            <div class="calendar-company__item">
+                                <div class="calendar-company__link">
+                                    <div class="calendar-company__num">1</div>
+                                    <div class="calendar-company__name">Абслоют Экспресс</div>
+                                </div>
+                                <div class="calendar-company__list">
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li status-3"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li status-2"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li status-1"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li status-4"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li status-3"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li status-1"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li status-1"></div>
+                                </div>
+                            </div>
+                            <div class="calendar-company__item">
+                                <div class="calendar-company__link">
+                                    <div class="calendar-company__num">1</div>
+                                    <div class="calendar-company__name">Абслоют Экспресс</div>
+                                </div>
+                                <div class="calendar-company__list">
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li status-3"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li status-2"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li status-1"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li status-4"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li status-3"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li status-1"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li status-1"></div>
+                                </div>
+                            </div>
+                            <div class="calendar-company__item">
+                                <div class="calendar-company__link">
+                                    <div class="calendar-company__num">1</div>
+                                    <div class="calendar-company__name">Абслоют Экспресс</div>
+                                </div>
+                                <div class="calendar-company__list">
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li status-3"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li status-2"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li status-1"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li status-4"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li status-3"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li status-1"></div>
+                                    <div class="calendar-company__li"></div>
+                                    <div class="calendar-company__li status-1"></div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <!-- /.calendar-company -->
+
+                    </div>
+                    <!-- /.calendar-company -->
+
+                </div>
+                <!-- /.calendar -->
+
+              </div>
+
             </div>
           </div>
+
+
+        <div class="modal">
+            <div class="modal__wrapper">
+                <div class="modal__content">
+                    <span class="modal__close">&times;</span>
+                    <div class="modal__company">
+                        Компания: Абслоют Экспресс
+                    </div>
+                    <div class="modal__task">
+                        Срок задач: 30.06.2020
+                    </div>
+                    <div class="task-list">
+                        <div class="task-list__head">
+                            <div class="task-list__num">#</div>
+                            <div class="task-list__name">Задача</div>
+                            <div class="task-list__status">Статус</div>
+                            <div class="task-list__action">Действие</div>
+                        </div>
+                        <div class="task-list__body">
+                            <div class="task-list__item">
+                                <div class="task-list__num">1</div>
+                                <div class="task-list__name">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Natus suscipit corporis dolores</div>
+                                <div class="task-list__status">Не выполнена</div>
+                                <div class="task-list__action"><button class="task-list__btn">Завершить</button></div>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="modal__cancel">Отмена</button>
+                </div>
+                <!-- /.modal__content -->
+            </div>
+            <!-- /.modal__wrapper -->
+        </div>
+        <!-- /.modal -->
         
 
     </div>    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="js/bootstrap-datepicker.min.js"></script>
+    <script src="js/bootstrap-datepicker.ru.min.js"></script>
     <script src="js/calc.js"></script>
     <script src="js/tabs.js"></script>
     <script src="js/companies.js"></script>
+    <script src="js/settings.js"></script>
 </body>
 </html>
