@@ -142,8 +142,8 @@ else
 
 			$data = call($_SESSION["query_data"]["domain"], "event.bind", array(
 				"auth" => $_SESSION["query_data"]["access_token"],
-				"EVENT" => "onCrmCompanyUpdate",
-				"HANDLER" => "http://a9144202.beget.tech/script/calc/bitrix24/company_update.php",
+				"EVENT" => "onCrmLeadUpdate",
+				"HANDLER" => "http://a9144202.beget.tech/script/calc/script/php/lead_update.php",
 			));
 
 		break;
@@ -157,8 +157,8 @@ else
         case 'event.unbind':
             $data = call($_SESSION["query_data"]["domain"], "event.unbind", array(
                 "auth" => $_SESSION["query_data"]["access_token"],
-                'EVENT' => 'ONCRMLEADADD',
-                'HANDLER' => REDIRECT_URI . "event.php"
+                'EVENT' => 'onCrmCompanyUpdate',
+                'HANDLER' => REDIRECT_URI . "a9144202.beget.tech/script/calc/bitrix24/company_update.php"
             ));
         break;
 
