@@ -67,12 +67,12 @@ class Companies {
     }
 
     render() {
-        console.log(this);
         this.filter();
         if (this.filtered.length != 0) {
             let str = '';
+            let num = 0;
             this.filtered.forEach(data => {
-                str += data.element;
+                str += data.render(++num);
             });
             this.list.innerHTML = str;
         } else {
@@ -103,12 +103,11 @@ class Company {
 
     constructor(data) {
         this.data = data;
-        this.element = this.render();
     }
 
-    render() {
+    render(num) {
         return `<div class="company-list__item">
-                    <div class="company-list__num">${this.data.ID}</div>
+                    <div class="company-list__num">${num}</div>
                     <div class="company-list__name">${this.data.TITLE}</div>
                     <div class="company-list__price">${this.data.UF_CRM_1592318645774 ? this.data.UF_CRM_1592318645774 : '-'}</div>
                     <div class="company-list_calc">${this.data.UF_CRM_5EE8D58C70C04 ? this.data.UF_CRM_5EE8D58C70C04 : '-'}</div>

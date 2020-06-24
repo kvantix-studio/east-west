@@ -127,7 +127,7 @@ select::-ms-expand {
     padding: 10px 35px 10px 10px;
     border: 1px solid #d3d3d3;
     border-radius: 5px;
-    background: url('../img/arrow-bottom.png');
+    background: url('../image/arrow-bottom.png');
     background-repeat: no-repeat;
     background-position: 95% 50%;
     font-size: 16px;
@@ -234,7 +234,7 @@ select::-ms-expand {
     padding: 10px 35px 10px 10px;
     border: 1px solid #d3d3d3;
     border-radius: 5px;
-    background: #ffffff url('../img/arrow-bottom.png');
+    background: #ffffff url('../image/arrow-bottom.png');
     background-repeat: no-repeat;
     background-position: 96% 50%;
     font-size: 16px;
@@ -391,7 +391,7 @@ select::-ms-expand {
     height: 40px;
     padding: 10px;
     border: 1px solid #d3d3d3;
-    background: #ffffff url('../img/search.png');
+    background: #ffffff url('../image/search.png');
     background-size: 14px;
     background-repeat: no-repeat;
     background-position: 96% 50%;
@@ -448,7 +448,7 @@ select::-ms-expand {
     padding: 10px 35px 10px 10px;
     border: 1px solid #d3d3d3;
     border-radius: 5px;
-    background: #ffffff url('../img/arrow-bottom.png');
+    background: #ffffff url('../image/arrow-bottom.png');
     background-repeat: no-repeat;
     background-position: 96% 50%;
     font-size: 16px;
@@ -606,12 +606,18 @@ select::-ms-expand {
 }
 
 .settings-item {
-    padding: 0 20px;
-    margin-bottom: 50px;
+    margin-bottom: 5px;
+    width: 100%;
+    border: 1px #e6e6e6 solid;
+}
+
+.settings-item:hover {
+    cursor: pointer;
 }
 
 .settings__title {
-    margin-bottom: 15px;
+    background: #e6e6e6;
+    padding: 10px;
 }
 
 .settings__text {
@@ -626,6 +632,17 @@ select::-ms-expand {
     padding: 10px 35px 10px 10px;
     border: 1px solid #d3d3d3;
     border-radius: 5px;
+}
+
+.settings-item__wrapper {
+    display: none;
+}
+
+
+.settings-item__wrapper.active {
+    display: block;
+    background: white;
+    padding: 10px 10px 0 10px;
 }
 
 /* Checkbox ================================== */
