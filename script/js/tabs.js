@@ -16,3 +16,9 @@ for (let el of tabLinks) {
     panel[0].classList.add("active");
   });
 }
+
+$('.calendar-data .input-daterange').datepicker({
+  format: "dd.mm.yyyy",
+  language: "ru",
+  orientation: "bottom auto"
+});
