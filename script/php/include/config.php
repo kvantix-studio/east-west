@@ -12,7 +12,7 @@ define('CLIENT_SECRET', 'CvHV4vSvX0zP4D0JeIQJ5iw5jeQ8HderRzkmU7j2lrb313KXtp');
 /**
  * относительный путь приложения на сервере
  */
-define('PATH', '/script/calc/bitrix24/index.php');
+define('PATH', '/script/calc/script/php/index.php');
 /**
  * полный адрес к приложения
  */
