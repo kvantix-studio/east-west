@@ -67,7 +67,6 @@ class Companies {
     }
 
     render() {
-        console.log(this);
         this.filter();
         if (this.filtered.length != 0) {
             let str = '';
