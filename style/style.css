@@ -166,22 +166,6 @@ select::-ms-expand {
     font-size: 19px;
 }
 
-.calc__btn {
-    width: 300px;
-    height: 90px;
-    font-size: 25px;
-    text-align: center;
-    border: none;
-    border-radius: 100px;
-    color: #ffffff;
-    background: linear-gradient(to bottom,#4b4b4b 0,#353535 100%);
-    cursor: pointer;
-}
-
-.calc__btn:hover {
-    background: #353535;
-}
-
 .calc-submit{
     width: 100%;
     height: 40px;
@@ -415,6 +399,7 @@ select::-ms-expand {
     width: 100%;
     height: 40px;
     padding: 10px 35px 10px 10px;
+    background: transparent;
     border: 1px solid #2aa1c0;
     border-radius: 5px;
     font-size: 16px;
@@ -512,31 +497,33 @@ select::-ms-expand {
 
 .calendar-company {
     width: 100%;
-    height: 328px;
+    height: 350px;
     overflow: auto;
 }
 
-.calendar-company__item {
+.calendar-company__item, .calendar-company__item-head, .calendar-company__item-date {
     display: flex;
-    align-items: center;
     border-bottom: 1px solid #d3d3d3;
     width: fit-content;
+    cursor: pointer;
+}
+
+.calendar-company__item-date {
+    height: 35%;
 }
 
 .calendar-company__num {
     min-width: 30px;
-    height: 40px;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
 .calendar-company__name {
-    min-width: 250px;
-    height: 40px;
+    width: 250px;
+    padding: 10px 10px 10px 15px;
     display: flex;
     align-items: center;
-    padding-left: 15px;
     border-right: 1px solid #d3d3d3;
 }
 
@@ -547,10 +534,15 @@ select::-ms-expand {
     left: 0;
 }
 
+.calendar-company__list-date {
+    display: flex;
+    background-color: #ffffff;
+    left: 0;
+}
+
 .calendar-company__link-num {
     font-weight: bold;
-    min-width: 30px;
-    height: 40px;
+    width: 30px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -559,7 +551,7 @@ select::-ms-expand {
 .calendar-company__link-name {
     font-weight: bold;
     min-width: 250px;
-    height: 40px;
+    padding: 10px 10px 10px 15px;
     display: flex;
     align-items: center;
     padding-left: 15px;
@@ -572,16 +564,12 @@ select::-ms-expand {
 
 .calendar-company__li {
     min-width: 27.2px;
-    height: 40px;
+    height: 100%;
+    padding: 10px 10px 10px 15px;
     display: flex;
-    align-items: center;
-    justify-content: center;
     border-right: 1px solid #d3d3d3;
 }
 
-.calendar-company__li:last-child {
-    border-right: none;
-}
 
 .status-1 {
     background-color: #e5e90e;
@@ -599,9 +587,25 @@ select::-ms-expand {
     background: linear-gradient(-45deg, #0ee90e 50%, #e90e0e 50%);
 }
 
-.calendar-company__item .data {
-    border-right: none;
+.calendar-company__li-data {
+    min-width: 27.2px;
+    height: 100%;
+    padding-bottom: 10px;
+    display: flex;
 }
+
+.calendar-company__item-date .data {
+    border-right: none;
+    display: flex;
+    justify-content: center;
+}
+
+.calendar-company__item-date .data div {
+    writing-mode: vertical-lr;
+    text-align: right;
+}
+
+
 
 
 /* Settings ================================== */
@@ -651,6 +655,194 @@ select::-ms-expand {
     padding: 10px 10px 0 10px;
 }
 
+/* Modal ================================== */
+
+.modal-task {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(0,0,0,0.5);
+    width: 100%;
+    height: 100%;
+    z-index: 5000;
+    overflow: auto;
+}
+
+.modal-create-task {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(0,0,0,0.6);
+    width: 100%;
+    height: 100%;
+    z-index: 6000;
+    overflow: auto;
+}
+
+.modal__wrapper {
+    padding: 50px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal__content {
+    position: relative;
+    padding: 50px 20px 20px 20px;
+    background-color: #ffffff;
+    width: 800px;
+}
+
+.modal__close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 40px;
+    line-height: 15px;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.modal__close:hover {
+    background-color: #2aa1c0;
+    color: #ffffff;
+}
+
+.modal__create-task-btn {
+    margin-left: 10px;
+    height: 40px;
+    padding: 10px;
+    background: transparent;
+    border: 1px solid #2aa1c0;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.modal__create-task-btn:hover {
+    background-color: #2aa1c0;
+    color: #ffffff
+}
+
+.modal__cancel-btn, .modal__create-btn {
+    height: 40px;
+    padding: 10px;
+    background: transparent;
+    border: 1px solid #2aa1c0;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.modal__cancel-btn:hover, .modal__create-btn:hover {
+    background-color: #2aa1c0;
+    color: #ffffff
+}
+
+.modal__create-btn {
+    margin-left: 10px;
+}
+
+.modal__company span {
+    font-weight: bold;
+}
+
+.modal__task {
+    margin-top: 20px;
+}
+
+.modal__task span {
+    font-weight: bold;
+}
+
+.task-list {
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.task-list__head {
+    display: flex;
+    width: 100%;
+    border-bottom: 1px solid #d3d3d3;
+}
+
+.task-list__head span {
+    font-weight: bold;
+}
+
+.task-list__item {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    border-bottom: 1px solid #d3d3d3;
+}
+
+.task-list__num {
+    width: 30px;
+    padding: 10px;
+}
+
+.task-list__name {
+    width: 500px;
+    padding: 10px;
+}
+
+.task-list__status {
+    width: 150px;
+    padding: 10px;
+}
+
+.task-list__action {
+    padding: 10px;
+}
+
+.task-list__btn {
+    padding: 5px 10px;
+    background: transparent;
+    border: 1px solid #2aa1c0;
+    border-radius: 5px;
+    font-size: 12px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.task-list__btn:hover {
+    background-color: #2aa1c0;
+    color: #ffffff
+}
+
+.modal__container {
+    margin-bottom: 50px;
+}
+
+.task-item {
+    margin-bottom: 20px;
+}
+
+.task__text {
+    display: inline-block;
+    width: 200px;
+}
+
+.task__input {
+    width: 450px;
+    height: 40px;
+    padding: 10px;
+    border: 1px solid #d3d3d3;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
 /* Checkbox ================================== */
 
 .control {
@@ -692,7 +884,7 @@ select::-ms-expand {
 
 .control:hover input:not([disabled]):checked ~ .control_indicator,
 .control input:checked:focus ~ .control_indicator {
-    background: #0e6647d;
+    background: #0e6647;
 }
 
 .control input:disabled ~ .control_indicator {
