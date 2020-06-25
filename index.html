@@ -3,6 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv='cache-control' content='no-cache'>
+    <meta http-equiv='expires' content='0'>
+    <meta http-equiv='pragma' content='no-cache'>
     <title>Калькулятор стоимости</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style/style.css">
@@ -38,7 +41,7 @@
                             
                             <div class="calc__content">
         
-                                <form action="./bitrix24/lead_gen.php" class="form" id="calc-form">
+                                <form action="./script/php/lead_gen.php" class="form" id="calc-form">
         
                                     <div class="calc-form"></div>
         
@@ -168,7 +171,10 @@
                                                     <div class="company-block__title">Статус</div>
                                                     <select class="company-block__select" data-title="UF_CRM_5EE8D58CA1507">
                                                         <option value="570">Обслуживается</option>
-                                                        <option value="572">Не обслуживается</option>
+                                                        <option value="572">Приостановлен</option>
+                                                        <option value="1026">Расторгнут</option>
+                                                        <option value="1028">Разовый</option>
+                                                        <option value="1038">Ликвидирован</option>
                                                     </select>
                                                 </div>
                     
@@ -187,7 +193,7 @@
                                                     <div class="company-block__img">
                                                         <img src="image/dollar.png" alt="dollar">
                                                     </div>
-                                                    <div class="company-block__num">917</div>
+                                                    <div class="company-block__num quantity"></div>
                                                     <div class="company-block__name">Компаний</div>
                                                 </div>
         
@@ -195,7 +201,7 @@
                                                     <div class="company-block__img">
                                                         <img src="image/dollar.png" alt="dollar">
                                                     </div>
-                                                    <div class="company-block__num">2 700 728</div>
+                                                    <div class="company-block__num sum"></div>
                                                     <div class="company-block__name">На сумму</div>
                                                 </div>
         
@@ -203,7 +209,7 @@
                                                     <div class="company-block__img">
                                                         <img src="image/dollar.png" alt="dollar">
                                                     </div>
-                                                    <div class="company-block__num">313 597</div>
+                                                    <div class="company-block__num difference"></div>
                                                     <div class="company-block__name">На повышение</div>
                                                 </div>
         
@@ -221,6 +227,7 @@
                                     <div class="company-list__head">
                                         <div class="company-list__num">#</div>
                                         <div class="company-list__name">Название</div>
+                                        <div class="company-list__assigned-by-id">Ответственный</div>
                                         <div class="company-list__price">Стоимость</div>
                                         <div class="company-list_calc">Калькулятор</div>
                                         <div class="company-list__difference">Отклонение</div>

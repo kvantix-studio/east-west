@@ -21,7 +21,7 @@ class Calculator {
       this.reload();
     }
     finally {
-      console.log('Калькулятор загружен');
+      
     }
   }
 

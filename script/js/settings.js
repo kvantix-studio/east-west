@@ -25,7 +25,7 @@ class Settings {
         document.querySelector('#save-btn').onclick = () => { this.save(); };
       }
       finally {
-        console.log('Настройки загружены');
+        
       }
     }
 

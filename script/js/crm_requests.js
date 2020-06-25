@@ -62,10 +62,10 @@ async function getFile(url) {
   return await d.json();
 }
 
-export async function executeREST(method, params) {
+export async function executeREST(method, params, list) {
   try {
     magicCount++;
-    if (magicCount == 2) {
+    if (magicCount == 2 && list) {
       await sleep(1000);
       magicCount = 0;
     }
@@ -74,12 +74,12 @@ export async function executeREST(method, params) {
     let data = await getFile(`${queryUrl}?${queryData}`);
     return data;
   } finally {
-    console.log('Получены данные из CRM');
+
   }
 };
 
 export async function getList(method, params) {
-  let total = await executeREST(method, params);
+  let total = await executeREST(method, params, true);
   let calls = Math.ceil(total['total'] / 50);
   let current_call = 0;
   let batch = [];

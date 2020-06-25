@@ -4,6 +4,7 @@ class Companies {
 
     constructor() {
         this.file = '';
+        this.users = [];
         this.selects = [];
         this.checkBoxes = [];
         this.list = '';
@@ -22,15 +23,18 @@ class Companies {
             this.file.forEach(data => {
                 this.companies.push(new Company(data));
             });
+            let users = await executeREST('user.get', {});
+            this.users = users['result'];
             this.selects = document.querySelectorAll('.company-block__select');
             this.checkBoxes = document.querySelectorAll('input[type="checkbox"]');
             this.list = document.querySelector('.company-list__wrapper');
             this.assignedById();
             this.addEventHandlers();
             this.render();
+            this.calc();
         }
         finally {
-            console.log('Список компаний загружен');
+            
         }
     }
 
@@ -71,8 +75,9 @@ class Companies {
         if (this.filtered.length != 0) {
             let str = '';
             let num = 0;
-            this.filtered.forEach(data => {
-                str += data.render(++num);
+            this.filtered.forEach(company => {
+                let user = this.users.find(user => user.ID == company.data.ASSIGNED_BY_ID);
+                str += company.render(++num, user);
             });
             this.list.innerHTML = str;
         } else {
@@ -89,12 +94,23 @@ class Companies {
             let id = this.companies[i].data['ASSIGNED_BY_ID'];
             if (!this.assignedById.list[id]) {
                 this.assignedById.list[id] = id;
-                let user = await executeREST('user.get', {"ID": id});
-                user = user['result'][0];
-                let option = new Option(`${user['LAST_NAME']} ${user['NAME']}`, id);
+                let user = this.users.find(user => user.ID == id);
+                let option = new Option(`${user.LAST_NAME} ${user.NAME}`, id);
                 select.add(option);
             }
         }
+    }
+
+    calc() {
+        let sum = 0;
+        let difference = 0;
+        this.companies.forEach(company => {
+            sum += company.data['UF_CRM_1592318645774'] ? +company.data['UF_CRM_1592318645774'] : 0;
+            difference += company.data['UF_CRM_1592318662799'] ? +company.data['UF_CRM_1592318662799'] : 0;
+        });
+        document.querySelector('.company-block__num.quantity').textContent = this.companies.length;
+        document.querySelector('.company-block__num.sum').textContent = sum;
+        document.querySelector('.company-block__num.difference').textContent = difference;
     }
 
 }
@@ -105,10 +121,11 @@ class Company {
         this.data = data;
     }
 
-    render(num) {
+    render(num, user) {
         return `<div class="company-list__item">
                     <div class="company-list__num">${num}</div>
                     <div class="company-list__name">${this.data.TITLE}</div>
+                    <div class="company-list__assigned-by-id">${user.LAST_NAME} ${user.NAME}</div>
                     <div class="company-list__price">${this.data.UF_CRM_1592318645774 ? this.data.UF_CRM_1592318645774 : '-'}</div>
                     <div class="company-list_calc">${this.data.UF_CRM_5EE8D58C70C04 ? this.data.UF_CRM_5EE8D58C70C04 : '-'}</div>
                     <div class="company-list__difference">${this.data.UF_CRM_1592318662799 ? this.data.UF_CRM_1592318662799 : '-'}</div>

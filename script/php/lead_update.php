@@ -4,7 +4,7 @@ require('crm_requests.php');
 
 header('Content-Type: text/html; charset=utf-8');
 $data = executeREST('crm.lead.get', array("id" => $_REQUEST['data']['FIELDS']['ID']), $magic_count)[result];
-$settings = json_decode(file_get_contents("../data.json"), true);
+$settings = json_decode(file_get_contents("../../settings.json"), true);
 $fields = executeREST('crm.lead.fields', array(), $magic_count)[result];
 $sum = 0;
 foreach ($fields as $key => $value) {

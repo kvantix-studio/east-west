@@ -325,6 +325,12 @@ select::-ms-expand {
     width: 59%;
 }
 
+.company-list__assigned-by-id {
+    width: 12%;
+    min-width: 130px;
+    text-align: center;
+}
+
 .company-list__price {
     width: 12%;
     min-width: 130px;

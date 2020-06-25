@@ -4,7 +4,7 @@ require('crm_requests.php');
 
 header('Content-Type: text/html; charset=utf-8');
 $data = executeREST('crm.company.get', array("id" => $_REQUEST['data']['FIELDS']['ID']), $magic_count)[result];
-$settings = json_decode(file_get_contents("../data.json"), true);
+$settings = json_decode(file_get_contents("../../settings.json"), true);
 $fields = executeREST('crm.company.fields', array(), $magic_count)[result];
 $sum = 0;
 foreach ($fields as $key => $value) {
@@ -28,7 +28,7 @@ executeREST(
         'id' => $_REQUEST['data']['FIELDS']['ID'],
         'fields' => array(
             'UF_CRM_5EE8D58C70C04' => $sum,
-            'UF_CRM_1592318662799' => abs($sum - $data[UF_CRM_1592318645774])
+            'UF_CRM_1592318662799' => $sum - $data[UF_CRM_1592318645774]
         )
     ),
     $magic_count
