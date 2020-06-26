@@ -147,13 +147,6 @@ class Calendar {
         });
         this.table.innerHTML = str;
     
-        let str2 = '';
-    
-        this.dates.forEach(() => {
-            str2 += `<div class="calendar-company__li"></div>`
-        })
-        document.querySelector('.calendar-company__list').innerHTML = str2;
-    
         let str3 = '';
     
         this.dates.forEach((data) => {
@@ -253,7 +246,7 @@ class Calendar {
                         </div>
                         <div class="task-item">
                             <label class="task__text" for="task-manager">Ответственный:</label>
-                            <select class="task__input task-manager" name="task-manager" id="task-manager">`;
+                            <select class="task__input calendar-responsible__select" name="task-manager" id="task-manager">`;
 
         this.users.forEach(user => {
             modalCreateContent += `<option value="${user.ID}">${user.LAST_NAME} ${user.NAME}</option>`;

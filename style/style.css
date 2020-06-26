@@ -497,14 +497,17 @@ select::-ms-expand {
 
 .calendar-company {
     width: 100%;
-    height: 350px;
+    height: 400px;
     overflow: auto;
 }
 
 .calendar-company__item, .calendar-company__item-head, .calendar-company__item-date {
     display: flex;
-    border-bottom: 1px solid #d3d3d3;
-    width: fit-content;
+    /* border-bottom: 1px solid #d3d3d3; */
+    width: 100%;
+}
+
+.calendar-company__item {
     cursor: pointer;
 }
 
@@ -517,6 +520,7 @@ select::-ms-expand {
     display: flex;
     align-items: center;
     justify-content: center;
+    border-right: 1px solid #d3d3d3;
 }
 
 .calendar-company__name {
@@ -532,12 +536,19 @@ select::-ms-expand {
     position: sticky;
     background-color: #ffffff;
     left: 0;
+    border-top: 1px solid #d3d3d3;
+    border-left: 1px solid #d3d3d3;
+}
+
+.calendar-company__link.link {
+    border: none;
 }
 
 .calendar-company__list-date {
     display: flex;
     background-color: #ffffff;
     left: 0;
+    width: 100%;
 }
 
 .calendar-company__link-num {
@@ -546,6 +557,8 @@ select::-ms-expand {
     display: flex;
     align-items: center;
     justify-content: center;
+    border-right: 1px solid #d3d3d3;
+    border-bottom: 1px solid #d3d3d3;
 }
 
 .calendar-company__link-name {
@@ -556,20 +569,24 @@ select::-ms-expand {
     align-items: center;
     padding-left: 15px;
     border-right: 1px solid #d3d3d3;
+    border-bottom: 1px solid #d3d3d3;
 }
 
 .calendar-company__list {
     display: flex;
+    width: 100%;
 }
 
 .calendar-company__li {
-    min-width: 27.2px;
-    height: 100%;
-    padding: 10px 10px 10px 15px;
-    display: flex;
+    min-width: 40px;
+    flex: 1;
     border-right: 1px solid #d3d3d3;
+    border-top: 1px solid #d3d3d3;
 }
 
+.calendar-company__li:hover {
+    border: 1px solid #e90e0e;
+}
 
 .status-1 {
     background-color: #e5e90e;
@@ -592,23 +609,36 @@ select::-ms-expand {
 }
 
 .calendar-company__li-data {
-    min-width: 27.2px;
+    min-width: 40px;
     height: 100%;
     padding-bottom: 10px;
     display: flex;
+    flex: 1;
+    border-right: 1px solid #d3d3d3;
+    border-top: 1px solid #d3d3d3;
+    border-bottom: 1px solid #d3d3d3;
 }
 
 .calendar-company__item-date .data {
-    border-right: none;
     display: flex;
     justify-content: center;
+    background-color: #ffffff;
+}
+
+.calendar-company__item-date {
+    position: sticky;
+    top: 0;
+    z-index: 100;
 }
 
 .calendar-company__item-date .data div {
     writing-mode: vertical-lr;
-    text-align: right;
+    text-align: center;
 }
 
+.calender-company__list-wrapper {
+    border-bottom: 1px solid #d3d3d3;
+}
 
 
 
