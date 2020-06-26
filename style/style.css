@@ -587,6 +587,10 @@ select::-ms-expand {
     background: linear-gradient(-45deg, #0ee90e 50%, #e90e0e 50%);
 }
 
+.status-5 {
+    background: linear-gradient(-45deg, #e5e90e 50%, #e90e0e 50%);
+}
+
 .calendar-company__li-data {
     min-width: 27.2px;
     height: 100%;
@@ -658,7 +662,7 @@ select::-ms-expand {
 /* Modal ================================== */
 
 .modal-task {
-    display: none;
+    display: block;
     position: fixed;
     top: 0;
     left: 0;
@@ -670,7 +674,7 @@ select::-ms-expand {
 }
 
 .modal-create-task {
-    display: none;
+    display: block;
     position: fixed;
     top: 0;
     left: 0;
@@ -790,24 +794,30 @@ select::-ms-expand {
 .task-list__num {
     width: 30px;
     padding: 10px;
+    font-size: 12px;
 }
 
 .task-list__name {
-    width: 500px;
+    width: 470px;
     padding: 10px;
+    font-size: 12px;
 }
 
 .task-list__status {
     width: 150px;
     padding: 10px;
+    font-size: 12px;
 }
 
 .task-list__action {
-    padding: 10px;
+    padding: 0 10px;
+    font-size: 12px;
+    width: 105px;
 }
 
 .task-list__btn {
-    padding: 5px 10px;
+    width: 100%;
+    padding: 5px;
     background: transparent;
     border: 1px solid #2aa1c0;
     border-radius: 5px;
