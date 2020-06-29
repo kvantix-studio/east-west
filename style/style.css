@@ -501,6 +501,30 @@ select::-ms-expand {
     overflow: auto;
 }
 
+.not-found {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 150px;
+}
+
+.load {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    background: #fff;
+}
+
 .calendar-company__item, .calendar-company__item-head, .calendar-company__item-date {
     display: flex;
     /* border-bottom: 1px solid #d3d3d3; */
@@ -637,6 +661,7 @@ select::-ms-expand {
 }
 
 .calender-company__list-wrapper {
+    position: relative;
     border-bottom: 1px solid #d3d3d3;
 }
 

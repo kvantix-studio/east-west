@@ -7,15 +7,15 @@
     <meta http-equiv='expires' content='0'>
     <meta http-equiv='pragma' content='no-cache'>
     <title>Калькулятор стоимости</title>
+    <script src="./script/js/load.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style/style.css">
     <link rel="stylesheet" href="style/bootstrap-datepicker3.standalone.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 <body>
-
-    <div class="main">
-
+        <div class="load"><img src="./image/load.gif" alt=""></div>
+        <div class="main">
         <div class="container">
             <ul class="tabs">
               <li class="active">
@@ -294,9 +294,9 @@
                                     <div class="calendar-data__title">Дата</div>
                                     <div class="input-daterange input-group" id="datepicker">
                                         <span class="input-group-addon">с </span>
-                                        <input type="text" class="input-sm form-control form-control-start" name="start" value="2020/06/01"/>
+                                        <input type="text" class="input-sm form-control form-control-start" name="start"/>
                                         <span class="input-group-addon">по </span>
-                                        <input type="text" class="input-sm form-control form-control-end" name="end" value="2020/06/30"/>
+                                        <input type="text" class="input-sm form-control form-control-end" name="end"/>
                                     </div>
                                 </div>
                                 <!-- /.calendar-data -->
@@ -315,15 +315,15 @@
 
                             <div class="calendar-result-wrapper">
                                 <div class="calendar-result">
-                                    <div class="calendar-result__num">881</div>
+                                    <div class="calendar-result__num yellow">-</div>
                                     <span class="calendar-result__text text-1">Нужно сдать</span>
                                 </div>
                                 <div class="calendar-result">
-                                    <div class="calendar-result__num">24</div>
+                                    <div class="calendar-result__num green">-</div>
                                     <span class="calendar-result__text text-2">Успешно сдано</span>
                                 </div>
                                 <div class="calendar-result">
-                                    <div class="calendar-result__num">10</div>
+                                    <div class="calendar-result__num red">-</div>
                                     <span class="calendar-result__text text-3">Не сдано</span>
                                 </div>
                             </div>

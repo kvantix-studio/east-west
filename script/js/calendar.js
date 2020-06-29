@@ -2,6 +2,8 @@ import { executeREST, getList } from './crm_requests.js';
 
 class Calendar {
     constructor() {
+        this.companies = [];
+        this.filtered = [];
         this.dates = [];
         this.users = [];
         this.table = '';
@@ -10,13 +12,17 @@ class Calendar {
 
     async init() {
         $('.input-daterange').datepicker({format: "yyyy/mm/dd", language: "ru"});
-        this.companies = await this.companyList();
+        this.companies = await getList('crm.company.list', { select: [ "ID", "TITLE" ] });
         let users = await executeREST('user.get', {});
         this.users = users['result'];
         this.tasks = await this.tasksList();
         this.table = document.querySelector('.calender-company__list-wrapper');
         const dateArray = $(".input-sm.form-control").change(() => { this.loadDates(); });
+        this.initDates();
         this.loadDates();
+        document.querySelector('.load').remove();
+        document.querySelector('.calendar-search__input').addEventListener('input', () => {this.search();})
+        this.calc();
     }
     
     async loadDates () {
@@ -30,20 +36,22 @@ class Calendar {
         this.dates = this.getDates(start, end);
         this.render();
         this.table.onclick = event => {
-            if (event.target.classList.length > 1) {
-                this.modalRender(event.target.dataset.date, event.target.dataset.id);
-            } else {
-                this.modalCreateTask(event.target.dataset.date, event.target.dataset.id)
+            if (event.target.classList.contains('calendar-company__li')) {
+                if (event.target.classList.length > 1) {
+                    this.modalRender(event.target.dataset.date, event.target.dataset.id);
+                } else {
+                    this.modalCreateTask(event.target.dataset.date, event.target.dataset.id)
+                }
             }
         };
     }
     
-    formatDate(date) {
+    formatDate(date, init) {
         if (date == null) return null;
         date = Date.parse(date);
         const dateTimeFormat = new Intl.DateTimeFormat('ru', { year: 'numeric', month: 'numeric', day: 'numeric' });
         const [{ value: day },,{ value: month },,{ value: year }] = dateTimeFormat.formatToParts(date);
-        return `${day}.${month}.${year}`;
+        return init ? `${year}/${month}/${day}` : `${day}.${month}.${year}`;
     }
 
     getDates(startDate, stopDate) {
@@ -57,16 +65,14 @@ class Calendar {
         return dateArray;
     }
 
-    async companyList() {
-        let list = await getList(
-            'crm.company.list', 
-            { 
-                order: { },
-                filter: { },
-                select: [ "ID", "TITLE" ]				
-            }
-        );
-        return list;
+    initDates() {
+        const startInput = document.querySelector('.form-control-start');
+        const endInput = document.querySelector('.form-control-end');
+        const today = new Date();
+        const notToday = (new Date()).setDate(today.getDate() - 30);
+        console.log(notToday)
+        endInput.value = this.formatDate(today, true);
+        // startInput.value = this.formatDate(notToday, true);
     }
     
     async tasksList() {
@@ -127,7 +133,8 @@ class Calendar {
 
     async render () {
         let str = '';
-        this.companies.forEach((company, i) => {
+        let arr = document.querySelector('.calendar-search__input').value ? this.filtered : this.companies;
+        arr.forEach((company, i) => {
             str += `
                 <div class="calendar-company__item">
                     <div class="calendar-company__link">
@@ -153,6 +160,43 @@ class Calendar {
             str3 += `<div class="calendar-company__li-data data"><div>${data}</div></div>`
         })
         document.querySelector('.calendar-company__list-date').innerHTML = str3;
+        
+        if (arr.length == 0) {
+            const wrapper = document.querySelector('.calender-company__list-wrapper');
+            wrapper.innerHTML = `
+                <div class="not-found">Нет совпадений</div>
+            `;
+        }
+    }
+
+    calc() {
+        let yellow = 0;
+        let green = 0;
+        let red = 0;
+        this.tasks.forEach(task => {
+            if (task.status == '5') {
+                green++;
+            } else if (task.status == '7') {
+                red++;
+            } else {
+                yellow++;
+            }
+        });
+        document.querySelector('.calendar-result__num.yellow').innerHTML = yellow;
+        document.querySelector('.calendar-result__num.red').innerHTML = red;
+        document.querySelector('.calendar-result__num.green').innerHTML = green;
+    }
+
+    search() {
+        this.filtered = [];
+        const input = document.querySelector('.calendar-search__input').value.toLowerCase();
+        this.companies.forEach(company => {
+            if (company['TITLE'].toLowerCase().includes(input)) {
+                this.filtered.push(company);
+            }
+        })
+        
+        this.loadDates();
     }
     
     modalRender(date, id) {
