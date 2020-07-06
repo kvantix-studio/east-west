@@ -20,8 +20,10 @@ class Calendar {
         const dateArray = $(".input-sm.form-control").change(() => { this.loadDates(); });
         this.initDates();
         this.loadDates();
+        this.responsibles();
         document.querySelector('.load').remove();
-        document.querySelector('.calendar-search__input').addEventListener('input', () => {this.search();})
+        document.querySelector('.calendar-search__input').addEventListener('input', () => {this.loadDates();})
+        document.querySelector('.calendar-responsible__select').addEventListener('change', () => {this.loadDates();})
         this.calc();
     }
     
@@ -34,6 +36,7 @@ class Calendar {
             return date;
         }
         this.dates = this.getDates(start, end);
+        this.filter();
         this.render();
         this.table.onclick = event => {
             if (event.target.classList.contains('calendar-company__li')) {
@@ -66,20 +69,20 @@ class Calendar {
     }
 
     initDates() {
-        const startInput = document.querySelector('.form-control-start');
-        const endInput = document.querySelector('.form-control-end');
+        const start = document.querySelector('.form-control-start');
+        const end = document.querySelector('.form-control-end');
         const today = new Date();
-        const notToday = (new Date()).setDate(today.getDate() - 30);
-        console.log(notToday)
-        endInput.value = this.formatDate(today, true);
-        // startInput.value = this.formatDate(notToday, true);
+        let notToday = new Date();
+        notToday.setDate(today.getDate() - 30);
+        start.value = this.formatDate(notToday, true);
+        end.value = this.formatDate(today, true);
     }
     
     async tasksList() {
         let list = await getList(
             'tasks.task.list', 
             {
-                select: [ "ID", "TITLE", "DESCRIPTION", "STATUS", "UF_CRM_TASK", "DEADLINE" ]				
+                select: [ "ID", "TITLE", "DESCRIPTION", "STATUS", "UF_CRM_TASK", "DEADLINE", "RESPONSIBLE_ID", "TAG" ]				
             }
         );
         list[0]['tasks'].forEach(task => {
@@ -88,12 +91,14 @@ class Calendar {
                 task.ufCrmTask[0] = task.ufCrmTask[0].replace(/(\D+)(\d+)/, '$2');
             }
         })
+        console.log(list[0]['tasks'])
         return list[0]['tasks'];
     }
     
     getStatusClass(companyId, date) {
+        const responsible = document.querySelector('.calendar-responsible__select').value;
         let statuses = this.tasks.map(task => {
-            if (task.ufCrmTask == companyId && task.deadline == date) {
+            if (task.ufCrmTask == companyId && task.deadline == date && (responsible == task.responsibleId || responsible == 'any')) {
                 return task.status;
             }
         });
@@ -131,10 +136,9 @@ class Calendar {
         }
     }
 
-    async render () {
+    render () {
         let str = '';
-        let arr = document.querySelector('.calendar-search__input').value ? this.filtered : this.companies;
-        arr.forEach((company, i) => {
+        this.filtered.forEach((company, i) => {
             str += `
                 <div class="calendar-company__item">
                     <div class="calendar-company__link">
@@ -155,13 +159,12 @@ class Calendar {
         this.table.innerHTML = str;
     
         let str3 = '';
-    
         this.dates.forEach((data) => {
             str3 += `<div class="calendar-company__li-data data"><div>${data}</div></div>`
         })
         document.querySelector('.calendar-company__list-date').innerHTML = str3;
         
-        if (arr.length == 0) {
+        if (this.filtered.length == 0) {
             const wrapper = document.querySelector('.calender-company__list-wrapper');
             wrapper.innerHTML = `
                 <div class="not-found">Нет совпадений</div>
@@ -187,22 +190,31 @@ class Calendar {
         document.querySelector('.calendar-result__num.green').innerHTML = green;
     }
 
-    search() {
+    filter() {
         this.filtered = [];
         const input = document.querySelector('.calendar-search__input').value.toLowerCase();
+        const responsible = document.querySelector('.calendar-responsible__select').value;
         this.companies.forEach(company => {
             if (company['TITLE'].toLowerCase().includes(input)) {
-                this.filtered.push(company);
+                if (responsible == 'any') {
+                    this.filtered.push(company);
+                } else {
+                    this.tasks.forEach(task => {
+                        if (company['ID'] == task.ufCrmTask && responsible == task.responsibleId) {
+                            let find = this.filtered.find(x => x.ID == company.ID);
+                            if (!find) {
+                                this.filtered.push(company);
+                            }
+                        }
+                    })
+                }
             }
         })
-        
-        this.loadDates();
     }
     
     modalRender(date, id) {
-        
+        const responsible = document.querySelector('.calendar-responsible__select').value;
         let modalContent = '';
-
         let modal = document.createElement('div');
         modal.classList.add('modal-task');
         modalContent += `
@@ -227,7 +239,7 @@ class Calendar {
     
         let i = 0;
         this.tasks.forEach(task => {
-            if (task.ufCrmTask == id && task.deadline == date) {
+            if (task.ufCrmTask == id && task.deadline == date && (responsible == task.responsibleId || responsible == 'any')) {
                 modalContent += `
                     <div class="task-list__item">
                         <div class="task-list__num">${++i}</div>
@@ -337,7 +349,14 @@ class Calendar {
             
         });
 
-        
+    }
+
+    responsibles() {
+        const select = document.querySelector('.calendar-responsible__select');
+        this.users.forEach(user => {
+            const option = new Option(`${user.LAST_NAME} ${user.NAME}`, `${user.ID}`);
+            select.add(option);
+        })
     }
 
 }

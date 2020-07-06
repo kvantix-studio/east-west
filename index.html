@@ -7,7 +7,6 @@
     <meta http-equiv='expires' content='0'>
     <meta http-equiv='pragma' content='no-cache'>
     <title>Калькулятор стоимости</title>
-    <script src="./script/js/load.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style/style.css">
     <link rel="stylesheet" href="style/bootstrap-datepicker3.standalone.css">
@@ -304,9 +303,7 @@
                                 <div class="calendar-responsible">
                                     <label class="calendar-responsible__title" for="responsible">Ответственный</label>
                                     <select class="calendar-responsible__select" name="calendar-responsible" id="responsible">
-                                        <option>любой ответственный</option>
-                                        <option>---</option>
-                                        <option>---</option>
+                                        <option value="any">любой ответственный</option>
                                     </select>
                                 </div>
                                 <!-- /.calendar-responsible -->
@@ -340,7 +337,7 @@
                         <div class="calendar-company">
                             
                             <div class="calendar-company__item-date">
-                                <div class="calendar-company__link">
+                                <div class="calendar-company__link header">
                                     <div class="calendar-company__link-num">#</div>
                                     <div class="calendar-company__link-name data">Название</div>
                                 </div>

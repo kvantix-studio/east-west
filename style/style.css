@@ -381,7 +381,6 @@ select::-ms-expand {
     height: 40px;
     padding: 10px;
     border: 1px solid #d3d3d3;
-    background: #ffffff url('../image/search.png');
     background-size: 14px;
     background-repeat: no-repeat;
     background-position: 96% 50%;
@@ -560,8 +559,13 @@ select::-ms-expand {
     position: sticky;
     background-color: #ffffff;
     left: 0;
-    border-top: 1px solid #d3d3d3;
     border-left: 1px solid #d3d3d3;
+    border-bottom: 1px solid #d3d3d3;
+}
+
+.calendar-company__link.header {
+    border-top: 1px solid #d3d3d3;
+    border-bottom: 0;
 }
 
 .calendar-company__link.link {
@@ -605,7 +609,7 @@ select::-ms-expand {
     min-width: 40px;
     flex: 1;
     border-right: 1px solid #d3d3d3;
-    border-top: 1px solid #d3d3d3;
+    border-bottom: 1px solid #d3d3d3;
 }
 
 .calendar-company__li:hover {
@@ -662,7 +666,6 @@ select::-ms-expand {
 
 .calender-company__list-wrapper {
     position: relative;
-    border-bottom: 1px solid #d3d3d3;
 }
 
 
@@ -949,7 +952,7 @@ select::-ms-expand {
 
 .control:hover input:not([disabled]):checked ~ .control_indicator,
 .control input:checked:focus ~ .control_indicator {
-    background: #0e6647;
+    background: #2aa1c0;
 }
 
 .control input:disabled ~ .control_indicator {

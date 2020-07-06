@@ -68,6 +68,8 @@ class Companies {
             });
             if (push) this.filtered.push(company);
         });
+        
+        this.calc()
     }
 
     render() {
@@ -104,11 +106,11 @@ class Companies {
     calc() {
         let sum = 0;
         let difference = 0;
-        this.companies.forEach(company => {
+        this.filtered.forEach(company => {
             sum += company.data['UF_CRM_1592318645774'] ? +company.data['UF_CRM_1592318645774'] : 0;
             difference += company.data['UF_CRM_1592318662799'] ? +company.data['UF_CRM_1592318662799'] : 0;
         });
-        document.querySelector('.company-block__num.quantity').textContent = this.companies.length;
+        document.querySelector('.company-block__num.quantity').textContent = this.filtered.length;
         document.querySelector('.company-block__num.sum').textContent = sum;
         document.querySelector('.company-block__num.difference').textContent = difference;
     }
